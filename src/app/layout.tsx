@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <div className="lg:px-[60px] px-2">
+        <div>
           <AppWrapper>{children}</AppWrapper>
         </div>
       </body>
