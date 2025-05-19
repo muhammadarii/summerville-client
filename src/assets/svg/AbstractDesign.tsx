@@ -6,7 +6,7 @@ export const AbstractDesign: React.FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <svg
-        width="1573"
+        width="1500"
         height="448"
         viewBox="0 0 1573 448"
         fill="none"
