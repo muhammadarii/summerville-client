@@ -1,6 +1,6 @@
-import { AbstractDesign } from "@/assets/svg/AbstractDesign";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import AbstractDesign from "@/assets/images/AbstractDesign.png";
 import Marquee from "react-fast-marquee";
 import zapier from "@/assets/images/Zapier.png";
 import zoom from "@/assets/images/Zoom.png";
@@ -15,18 +15,22 @@ const repeated = [...logos, ...logos, ...logos];
 export const HeroSection = () => {
   return (
     <div className="relative flex flex-col items-center justify-center">
-      <AbstractDesign className="mt-[200px]" />
-      <div className="absolute top-[-90px] left-0 w-full h-full flex flex-col items-center justify-center">
-        <h1 className="text-4xl lg:text-5xl font-bold text-center text-white">
-          Empowering your business through trusted and scalable IT services.
+      <Image
+        src={AbstractDesign}
+        alt="Abstract Design"
+        className="mt-[150px] md:mt-[200px] object-cover"
+      />
+      <div className="absolute top-[-200px] md:top-[-130px] left-0 w-full h-full flex flex-col items-center justify-center">
+        <h1 className="text-2xl lg:text-5xl font-bold text-center text-white">
+          Empowering your business through trusted and scalable IT services
         </h1>
-        <p className="mt-4 text-base text-center text-gray-300">
+        <p className="hidden md:block mt-4 text-base text-center text-gray-300">
           Discover the power of our platform and how it can transform your
           digital experience. Join us today and be part of the future.
         </p>
-        <div className="flex flex-row items-center justify-center mt-6 gap-2">
+        <div className="hidden md:flex flex-row items-center justify-center mt-6 gap-2">
           for :
-          <div className="bg-[#262626] rounded-[5px] px-2 py-1">Startups</div>
+          <div className="bg-[#262626] rounded-[5px] px-2 py-1">Startup</div>
           <div className="bg-[#262626] rounded-[5px] px-2 py-1">
             Enterprise leaders
           </div>

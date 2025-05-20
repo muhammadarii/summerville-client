@@ -1,7 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Logo from "@/assets/images/summerville2.png";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Menu as MenuIcon, X } from "lucide-react";
 
 const Menu = [
   { name: "Home", link: "/" },
@@ -13,27 +17,60 @@ const Menu = [
 ];
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full px-2 lg:px-[60px] lg:py-[20px]">
-      <div className="flex flex-row items-baseline justify-between">
+    <nav className="fixed top-0 left-0 z-50 w-full shadow-sm px-4 py-3 lg:px-[60px] lg:py-[20px]">
+      <div className="flex justify-between items-center">
+        {/* Logo */}
         <Link href="/">
-          <Image src={Logo} alt="Logo" className="w-[150px]" />
+          <Image src={Logo} alt="Logo" className="w-[140px]" />
         </Link>
-        <div className="flex flex-row gap-[40px] items-center">
+        <div className="hidden lg:flex items-center gap-10">
           {Menu.map((item, index) => (
             <Link
               key={index}
               href={item.link}
-              className="font-extralight text-[14px]"
+              className="text-sm font-light hover:text-[#9EFF00] text-white transition"
             >
               {item.name}
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex flex-row gap-[20px] items-center">
+        <div className="hidden lg:flex">
           <Button variant="primary">Contact Us</Button>
         </div>
+
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden text-[#9EFF00]">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </div>
       </div>
+      {isOpen && (
+        <>
+          <div
+            onClick={() => setIsOpen(false)}
+            className="absolute top-0 right-0 w-full h-screen bg-black opacity-50 -z-10"
+          />
+          <div className="mt-4 flex flex-col gap-4 lg:hidden bg-white p-4 rounded-lg shadow-lg items-center">
+            {Menu.map((item, index) => (
+              <Link
+                key={index}
+                href={item.link}
+                className="text-sm text-black font-light transition hover:bg-[#9EFF00] hover:text-black w-full py-2 rounded-lg text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Button variant="primary" className="w-fit mt-2">
+              Contact Us
+            </Button>
+          </div>
+        </>
+      )}
     </nav>
   );
 };
