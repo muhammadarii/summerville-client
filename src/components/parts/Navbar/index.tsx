@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu as MenuIcon, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Menu = [
   { name: "Home", link: "/" },
@@ -18,6 +19,9 @@ const Menu = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (link: string) => pathname === link;
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full shadow-sm px-4 py-3 lg:px-[60px] lg:py-[20px]">
@@ -31,7 +35,11 @@ export const Navbar = () => {
             <Link
               key={index}
               href={item.link}
-              className="text-sm font-light hover:text-[#9EFF00] text-white transition"
+              className={`text-sm font-light transition ${
+                isActive(item.link)
+                  ? "text-[#9EFF00] font-medium border-b-2 border-[#9EFF00]"
+                  : "text-white hover:text-[#9EFF00]"
+              }`}
             >
               {item.name}
             </Link>
@@ -54,13 +62,16 @@ export const Navbar = () => {
             onClick={() => setIsOpen(false)}
             className="absolute top-0 right-0 w-full h-screen bg-black opacity-50 -z-10"
           />
-          <div className="mt-4 flex flex-col gap-4 lg:hidden bg-white p-4 rounded-lg shadow-lg items-center">
+          <div className="mt-4 flex flex-col gap-4 lg:hidden bg-black p-4 rounded-lg shadow-lg items-center">
             {Menu.map((item, index) => (
               <Link
                 key={index}
                 href={item.link}
-                className="text-sm text-black font-light transition hover:bg-[#9EFF00] hover:text-black w-full py-2 rounded-lg text-center"
-                onClick={() => setIsOpen(false)}
+                className={`text-sm font-light transition ${
+                  isActive(item.link)
+                    ? "text-[#9EFF00] font-medium border-b-2 border-[#9EFF00] pb-1"
+                    : "text-white hover:text-[#9EFF00]"
+                }`}
               >
                 {item.name}
               </Link>
