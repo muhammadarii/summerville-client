@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "@/assets/images/summerville2.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,12 +19,29 @@ const Menu = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
+
   const pathname = usePathname();
 
-  const isActive = (link: string) => pathname === link;
+  useEffect(() => {
+    setCurrentPath(pathname);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
+  const isActive = (link: string) => currentPath === link;
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full shadow-sm px-4 py-3 lg:px-[60px] lg:py-[20px]">
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full px-4 py-3 lg:px-[60px] lg:py-[20px] transition-all duration-300 ${
+        scrolled ? "bg-black/80 backdrop-blur-xs shadow-md" : "bg-transparent"
+      }`}
+    >
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
