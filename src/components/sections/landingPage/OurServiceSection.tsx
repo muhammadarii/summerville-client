@@ -25,12 +25,12 @@ const data = [
 
 export const OurServiceSection = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div id="service" className="flex flex-col items-center justify-center">
       <HeadTitle
         title="Our Service"
         description="Transform your brand with our innovative digital solutions that captivate and engage your audience."
       />
-      <div className="flex flex-row items-center justify-center gap-4 mt-8 w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-4 mt-8 w-full px-4 md:px-0">
         {data.map((item, index) => (
           <CardService
             key={index}
