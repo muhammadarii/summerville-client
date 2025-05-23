@@ -39,7 +39,7 @@ export const ExperienceSection = () => {
         title="Experience"
         description="Join us today and be part of the future. Our platform is designed to empower you with the tools and resources you need to succeed in the digital world."
       />
-      <div className="grid grid-cols-2 items-center justify-center gap-4 mt-8 w-full">
+      <div className="flex flex-col lg:grid md:grid-cols-2 items-center justify-center gap-4 mt-8 w-full px-4 md:px-0">
         {data.map((item, index) => (
           <CardExperience
             key={index}

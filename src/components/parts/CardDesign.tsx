@@ -30,7 +30,7 @@ export const CardExperience: React.FC<CardServiceProps> = ({
   description,
 }) => {
   return (
-    <div className="relative w-full h-[300px] rounded-md border border-[#4e4e4e]">
+    <div className="relative w-full h-[350px] md:h-[300px] rounded-md border border-[#4e4e4e]">
       <div className="absolute top-[44px] left-[44px] flex flex-row items-center justify-center gap-4">
         <div className="w-[88px] h-[88px] bg-gradient-to-tr from-[#242424] to-[#4e4e4e] rounded-md flex items-center justify-center">
           {icon}
