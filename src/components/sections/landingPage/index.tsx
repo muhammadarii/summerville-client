@@ -1,6 +1,7 @@
 import { ExperienceSection } from "./ExperienceSection";
-import { FAQ } from "./FAQ";
+import { FAQSection } from "./FAQSection";
 import { HeroSection } from "./HeroSection";
+import { InfoSection } from "./InfoSection";
 import { OurServiceSection } from "./OurServiceSection";
 
 const LandingPage = () => {
@@ -9,7 +10,8 @@ const LandingPage = () => {
       <HeroSection />
       <OurServiceSection />
       <ExperienceSection />
-      <FAQ />
+      <FAQSection />
+      <InfoSection />
     </div>
   );
 };
