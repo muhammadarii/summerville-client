@@ -39,7 +39,7 @@ const data = [
   },
 ];
 
-export const FAQ = () => {
+export const FAQSection = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-8">
       <HeadTitle
