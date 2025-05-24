@@ -1,10 +1,11 @@
 import { HeadTitle } from "@/components/parts/HeadTitle";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 
 export const InfoSection = () => {
   return (
-    <div className="mt-10 mb-20">
+    <div className="mt-10">
       <HeadTitle
         title="Thank you for your in SquareUp."
         description="We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us."
@@ -75,6 +76,11 @@ export const InfoSection = () => {
                 placeholder="type here"
               />
             </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <Button variant="primary" className="w-[100px]">
+              Submit
+            </Button>
           </div>
         </form>
       </div>
