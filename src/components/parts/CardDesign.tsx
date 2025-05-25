@@ -7,9 +7,9 @@ interface CardServiceProps {
   icon?: React.ReactNode;
   image?: string | StaticImageData;
   tag?: string;
-  title: string;
-  description: string;
-  url: string;
+  title?: string;
+  description?: string;
+  url?: string;
 }
 
 export const CardService: React.FC<CardServiceProps> = ({
