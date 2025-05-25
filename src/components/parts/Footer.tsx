@@ -12,7 +12,7 @@ import { MenuTitle } from "@/components/parts/Navbar/MenuTitle";
 
 export const Footer = () => {
   return (
-    <div className="mt-10 items-center justify-center flex flex-col w-full mb-5 px-4 md:px-0">
+    <div className="mt-28 items-center justify-center flex flex-col w-full mb-5 px-4 md:px-0">
       <div className="grid grid-cols-2 w-full md:grid-cols-3">
         <Image src={Logo} alt="Logo" width={120} />
         <MenuTitle className="hidden lg:flex items-center gap-10" />
