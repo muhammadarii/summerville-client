@@ -8,7 +8,7 @@ import {
   User2,
 } from "lucide-react";
 import Image from "next/image";
-import Logo from "@/assets/images/LogoBlack.png";
+import Logo from "@/assets/images/summerville2.png";
 
 import {
   Sidebar,
