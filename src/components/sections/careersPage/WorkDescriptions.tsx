@@ -3,25 +3,25 @@ const data = [
     id: 1,
     title: "Innovative and Impactful Projects",
     description:
-      "At SquareUp, you have the opportunity to work on exciting and impactful projects that shape the digital landscape. From designing intuitive user interfaces to developing robust software solutions, you be part of a team that creates products that make a difference.",
+      "At summerville, we are committed to pushing the boundaries of technology and design. Our projects are not just about creating products; they are about making a difference in people's lives. Join us in shaping the future of digital experiences.",
   },
   {
     id: 2,
     title: "Supportive Environment",
     description:
-      "At SquareUp, you'll have the opportunity to work on exciting and impactful projects that shape the digital landscape. From designing intuitive user interfaces to developing robust software solutions, you'll be part of a team that creates products that make a difference.",
+      " We foster a culture of collaboration and support. Our team is made up of passionate individuals who are always willing to lend a helping hand. Whether you're a seasoned professional or just starting your career, you'll find a welcoming environment where your ideas are valued.",
   },
   {
     id: 3,
     title: "Continuous Learning and Growth",
     description:
-      "We believe in investing in our team's growth and development. We provide opportunities for continuous learning, whether it's through workshops, training programs, or attending industry conferences. At SquareUp, you'll have the chance to expand your skill set and stay up-to-date with the latest trends and technologies.",
+      "We believe in investing in our team's growth. At summerville, you'll have access to ongoing training, mentorship, and opportunities to expand your skill set. We encourage you to take on new challenges and explore your potential in a dynamic and ever-evolving industry.",
   },
   {
     id: 4,
     title: "Challenging and Rewarding Work",
     description:
-      "Our projects are challenging, but the rewards are even greater. We tackle complex problems and push ourselves to deliver innovative solutions. You'll be empowered to take ownership of your work, make a real impact, and see your ideas come to life.",
+      " At summerville, we take pride in the quality of our work. We tackle complex problems and deliver innovative solutions that exceed client expectations. If you're looking for a place where your contributions are recognized and rewarded, you've found it here.",
   },
 ];
 
