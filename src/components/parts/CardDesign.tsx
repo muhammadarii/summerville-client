@@ -1,12 +1,15 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import { LuArrowUpRight } from "react-icons/lu";
 
 interface CardServiceProps {
   icon?: React.ReactNode;
   image?: string | StaticImageData;
+  tag?: string;
   title: string;
   description: string;
+  url: string;
 }
 
 export const CardService: React.FC<CardServiceProps> = ({
@@ -53,7 +56,7 @@ export const CardJob: React.FC<CardServiceProps> = ({
   description,
 }) => {
   return (
-    <div className="relative p-4 bg-[#262626] rounded-md w-full h-[430px] overflow-hidden">
+    <div className="relative p-4 shadow-2xl rounded-md w-full h-[430px] overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out">
       {image && (
         <Image
           src={image}
@@ -73,6 +76,37 @@ export const CardJob: React.FC<CardServiceProps> = ({
       >
         See Detail
       </Button>
+    </div>
+  );
+};
+
+export const CardProject: React.FC<CardServiceProps> = ({
+  image,
+  tag,
+  title,
+  description,
+  url,
+}) => {
+  return (
+    <div className="p-4 shadow-2xl rounded-md h-[600px] hover:scale-105 transition-all duration-300 ease-in-out">
+      <h1 className="mb-4 text-[#98989A]">{tag}</h1>
+      <Image
+        src={image || "/images/placeholder.png"}
+        alt="Project Image"
+        width={300}
+        height={200}
+        className="w-full h-[300px] object-cover bg-white rounded-md"
+      />
+      <p className="mt-4 text-[#98989A]">{title}</p>
+      <div className=" flex flex-row items-center justify-between">
+        <div className="bg-[#262626] text-[15px] p-2 items-center justify-center rounded-md">
+          {url}
+        </div>
+        <div className="bg-[#262626] p-2 items-center justify-center rounded-md mb-10 ">
+          <LuArrowUpRight className="text-xl text-[#9EFF00]" />
+        </div>
+      </div>
+      <p className="text-[12px] text-[#98989A] font-light">{description}</p>
     </div>
   );
 };
