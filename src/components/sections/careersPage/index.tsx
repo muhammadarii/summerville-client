@@ -9,7 +9,7 @@ const CareersPageSection = () => {
   return (
     <div className="flex flex-col container mx-auto">
       <HeadTitle
-        title="Join Our Team at SquareUp"
+        title="Join Our Team at summerville"
         description="Unlock your potential and join our team of innovators and problem solvers."
       />
       <WelcomeSection />
