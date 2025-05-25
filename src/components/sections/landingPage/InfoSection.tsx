@@ -33,7 +33,7 @@ export const InfoSection = () => {
           <div className="relative w-full h-[200px] bg-[#242424] border-[#262626] rounded-xl">
             <div className="absolute top-[40px] left-[40px]">
               <p className="font-semibold">Why are you contacting us?</p>
-              <div className="grid grid-cols-2 mt-4 gap-x-[200px] gap-y-4">
+              <div className="grid grid-cols-2 mt-4 gap-8 lg:gap-x-[200px] gap-y-4">
                 <div className="flex flex-row gap-2 items-center">
                   <Input type="checkbox" className="w-4 h-4" />
                   <label>Web Design</label>
