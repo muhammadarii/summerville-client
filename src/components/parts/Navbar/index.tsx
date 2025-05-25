@@ -62,9 +62,9 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex">
+        <Link href="/contact" className="hidden lg:flex">
           <Button variant="primary">Contact Us</Button>
-        </div>
+        </Link>
 
         {/* Mobile Hamburger */}
         <div className="lg:hidden text-[#9EFF00]">
@@ -82,6 +82,7 @@ export const Navbar = () => {
           <div className="mt-4 flex flex-col gap-4 lg:hidden bg-black p-4 rounded-lg shadow-lg items-center">
             {Menu.map((item, index) => (
               <Link
+                onClick={() => setIsOpen(false)}
                 key={index}
                 href={item.link}
                 className={`text-sm font-light transition ${
@@ -93,9 +94,11 @@ export const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="primary" className="w-fit mt-2">
-              Contact Us
-            </Button>
+            <Link href="/contact">
+              <Button variant="primary" className="w-fit mt-2">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </>
       )}
