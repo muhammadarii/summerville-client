@@ -1,10 +1,10 @@
-import LandingPage from "@/components/sections/landingPage";
+import LandingPageSection from "@/components/sections/landingPage";
 
 const HomePage = () => {
   return (
-    <div>
-      <LandingPage />
-    </div>
+    <>
+      <LandingPageSection />
+    </>
   );
 };
 

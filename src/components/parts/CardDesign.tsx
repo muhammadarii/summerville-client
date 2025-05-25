@@ -1,7 +1,10 @@
+import Image, { StaticImageData } from "next/image";
 import React from "react";
+import { Button } from "../ui/button";
 
 interface CardServiceProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  image?: string | StaticImageData;
   title: string;
   description: string;
 }
@@ -40,6 +43,36 @@ export const CardExperience: React.FC<CardServiceProps> = ({
       <p className="text-gray-300 mt-2 pr-10 absolute top-[150px] left-[44px]">
         {description}
       </p>
+    </div>
+  );
+};
+
+export const CardJob: React.FC<CardServiceProps> = ({
+  image,
+  title,
+  description,
+}) => {
+  return (
+    <div className="relative p-4 bg-[#262626] rounded-md w-full h-[430px] overflow-hidden">
+      {image && (
+        <Image
+          src={image}
+          alt="Image"
+          width={300}
+          height={150}
+          className="w-full h-[150px] object-cover bg-white rounded-md"
+        />
+      )}
+      <div className="mt-4 flex flex-col gap-2">
+        <h1 className="text-white text-lg font-semibold">{title}</h1>
+        <p className="text-[10px] text-gray-300 font-light">{description}</p>
+      </div>
+      <Button
+        variant="primary"
+        className="absolute bottom-4 left-4 right-4 w-[calc(100%-2rem)]"
+      >
+        See Detail
+      </Button>
     </div>
   );
 };
