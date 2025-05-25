@@ -8,7 +8,7 @@ interface HeadTitleProps {
 
 export const HeadTitle: React.FC<HeadTitleProps> = ({ title, description }) => {
   return (
-    <div className="relative mt-6 flex flex-col items-center justify-center w-full h-[150px] md:h-[200px]">
+    <div className="relative flex flex-col items-center justify-center w-full h-[150px] md:h-[200px]">
       <Image
         src={AbstractBackground}
         alt="Abstract Background"

@@ -1,7 +1,12 @@
+import CareersPageSection from "@/components/sections/careersPage";
 import React from "react";
 
 const CareersPage = () => {
-  return <div>CareersPage</div>;
+  return (
+    <>
+      <CareersPageSection />
+    </>
+  );
 };
 
 export default CareersPage;

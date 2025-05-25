@@ -1,11 +1,11 @@
 import { ExperienceSection } from "./ExperienceSection";
 import { FAQSection } from "./FAQSection";
-import { FooterSection } from "./FooterSection";
+import { Footer } from "../../parts/Footer";
 import { HeroSection } from "./HeroSection";
 import { InfoSection } from "./InfoSection";
 import { OurServiceSection } from "./OurServiceSection";
 
-const LandingPage = () => {
+const LandingPageSection = () => {
   return (
     <div className="flex flex-col container mx-auto">
       <HeroSection />
@@ -13,9 +13,9 @@ const LandingPage = () => {
       <ExperienceSection />
       <FAQSection />
       <InfoSection />
-      <FooterSection />
+      <Footer />
     </div>
   );
 };
 
-export default LandingPage;
+export default LandingPageSection;
