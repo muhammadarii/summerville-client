@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "summerville",
     description:
       "We are a digital product agency that specializes in creating exceptional digital experiences.",
-    url: "https://summerville.agency",
+    url: "https://summervilleintech.vercel.app/",
     siteName: "summerville",
     images: [
       {
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     "digital product design and development team",
   ],
   alternates: {
-    canonical: "https://summerville.agency",
+    canonical: "https://summervilleintech.vercel.app/",
     types: {
       "application/rss+xml": "/feed.xml",
       "application/atom+xml": "/atom.xml",

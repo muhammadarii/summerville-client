@@ -7,7 +7,7 @@ import { OurServiceSection } from "./OurServiceSection";
 
 const LandingPageSection = () => {
   return (
-    <div className="flex flex-col container mx-auto">
+    <div className="flex flex-col container mx-auto overflow-x-hidden">
       <HeroSection />
       <OurServiceSection />
       <ExperienceSection />

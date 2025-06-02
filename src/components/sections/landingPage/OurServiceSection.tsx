@@ -1,3 +1,5 @@
+import { RevealOnScrollDown } from "@/animations/RevealOnScrollDown";
+import { RevealOnScrollUp } from "@/animations/RevealOnScrollUp";
 import { CardService } from "@/components/parts/CardDesign";
 import { HeadTitle } from "@/components/parts/HeadTitle";
 import { FaPaintBrush, FaProjectDiagram, FaPuzzlePiece } from "react-icons/fa";
@@ -26,20 +28,24 @@ const data = [
 export const OurServiceSection = () => {
   return (
     <div id="service" className="flex flex-col items-center justify-center">
-      <HeadTitle
-        title="Our Service"
-        description="Transform your brand with our innovative digital solutions that captivate and engage your audience."
-      />
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-4 mt-8 w-full px-4 md:px-0">
-        {data.map((item, index) => (
-          <CardService
-            key={index}
-            title={item.title}
-            description={item.description}
-            icon={item.icon}
-          />
-        ))}
-      </div>
+      <RevealOnScrollDown>
+        <HeadTitle
+          title="Our Service"
+          description="Transform your brand with our innovative digital solutions that captivate and engage your audience."
+        />
+      </RevealOnScrollDown>
+      <RevealOnScrollUp>
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 mt-8 w-full px-4 md:px-0">
+          {data.map((item, index) => (
+            <CardService
+              key={index}
+              title={item.title}
+              description={item.description}
+              icon={item.icon}
+            />
+          ))}
+        </div>
+      </RevealOnScrollUp>
     </div>
   );
 };

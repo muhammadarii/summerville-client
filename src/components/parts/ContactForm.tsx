@@ -1,28 +1,34 @@
+import { RevealOnScrollLeft } from "@/animations/RevealOnScrollLeft";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Slider } from "../ui/slider";
+import { RevealOnScrollRight } from "@/animations/RevealOnScrollRight";
 
 export const ContactForm = () => {
   return (
     <div className="flex items-center justify-center">
       <form className="flex flex-col w-[850px] gap-4">
         <div className="flex flex-row items-center gap-4 mt-8">
-          <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
-            <label>Full Name</label>
-            <Input
-              type="text"
-              className="border-0 border-b-2 rounded-none px-0 mt-2"
-              placeholder="type here"
-            />
-          </div>
-          <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
-            <label>Email</label>
-            <Input
-              type="email"
-              className="border-0 border-b-2 rounded-none px-0 mt-2"
-              placeholder="type here"
-            />
-          </div>
+          <RevealOnScrollLeft>
+            <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
+              <label>Full Name</label>
+              <Input
+                type="text"
+                className="border-0 border-b-2 rounded-none px-0 mt-2"
+                placeholder="type here"
+              />
+            </div>
+          </RevealOnScrollLeft>
+          <RevealOnScrollRight>
+            <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
+              <label>Email</label>
+              <Input
+                type="email"
+                className="border-0 border-b-2 rounded-none px-0 mt-2"
+                placeholder="type here"
+              />
+            </div>
+          </RevealOnScrollRight>
         </div>
         <div className="relative w-full h-[200px] bg-[#242424] border-[#262626] rounded-xl">
           <div className="absolute top-[40px] left-[40px]">
@@ -71,6 +77,7 @@ export const ContactForm = () => {
             />
           </div>
         </div>
+
         <div className="flex items-center justify-center">
           <Button variant="primary" className="w-[100px]">
             Submit
