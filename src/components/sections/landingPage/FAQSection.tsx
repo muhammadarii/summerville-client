@@ -1,3 +1,5 @@
+import { RevealOnScrollDown } from "@/animations/RevealOnScrollDown";
+import { RevealOnScrollLeft } from "@/animations/RevealOnScrollLeft";
 import { HeadTitle } from "@/components/parts/HeadTitle";
 import {
   Accordion,
@@ -42,31 +44,35 @@ const data = [
 export const FAQSection = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-8">
-      <HeadTitle
-        title="Frequently Asked Questions"
-        description="Join us today and be part of the future. Our platform is designed to empower you with the tools and resources you need to succeed in the digital world."
-      />
-      <div className="flex flex-col lg:grid md:grid-cols-2 items-start justify-center w-full gap-x-20 gap-y-4 mt-8 px-4 md:px-0">
-        {data.map((item, index) => (
-          <Accordion key={index} type="single" collapsible className="w-full">
-            <AccordionItem value={`item-${index}`} className="w-full">
-              <div className="flex flex-row items-center gap-4">
-                <div className="w-[50px] h-[50px] bg-gradient-to-tr from-[#242424] to-[#4e4e4e] rounded-md flex items-center justify-center">
-                  0{index + 1}
+      <RevealOnScrollDown>
+        <HeadTitle
+          title="Frequently Asked Questions"
+          description="Join us today and be part of the future. Our platform is designed to empower you with the tools and resources you need to succeed in the digital world."
+        />
+      </RevealOnScrollDown>
+      <RevealOnScrollLeft>
+        <div className="flex flex-col lg:grid md:grid-cols-2 items-start justify-center w-full gap-x-20 gap-y-4 mt-8 px-4 md:px-0">
+          {data.map((item, index) => (
+            <Accordion key={index} type="single" collapsible className="w-full">
+              <AccordionItem value={`item-${index}`} className="w-full">
+                <div className="flex flex-row items-center gap-4">
+                  <div className="w-[50px] h-[50px] bg-gradient-to-tr from-[#242424] to-[#4e4e4e] rounded-md flex items-center justify-center">
+                    0{index + 1}
+                  </div>
+                  <div className="flex-1">
+                    <AccordionTrigger className="text-[#9EFF00]">
+                      {item.title}
+                    </AccordionTrigger>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <AccordionTrigger className="text-[#9EFF00]">
-                    {item.title}
-                  </AccordionTrigger>
-                </div>
-              </div>
-              <AccordionContent className="ml-[68px]">
-                {item.description}
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        ))}
-      </div>
+                <AccordionContent className="ml-[68px]">
+                  {item.description}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          ))}
+        </div>
+      </RevealOnScrollLeft>
     </div>
   );
 };
