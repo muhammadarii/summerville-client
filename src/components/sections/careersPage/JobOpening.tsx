@@ -1,4 +1,7 @@
+"use client";
 import { CardJob } from "@/components/parts/CardDesign";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 
 const data = [
   {
@@ -46,6 +49,36 @@ const data = [
 ];
 
 export const JobOpening = () => {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: -50,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "bottom 20%",
+              toggleActions: "play reset play reverse",
+              markers: false,
+            },
+            delay: index * 0.1,
+          }
+        );
+      }
+    });
+  }, []);
+
   return (
     <div className="flex flex-col mt-10">
       <h1 className="text-3xl">Current Openings</h1>
@@ -58,12 +91,19 @@ export const JobOpening = () => {
       <div className="flex items-center justify-center">
         <div className="mt-10 grid grid-cols-3 gap-4">
           {data.map((job, index) => (
-            <CardJob
+            <div
               key={index}
-              image={job.image}
-              title={job.title}
-              description={job.description}
-            />
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
+              className="w-full"
+            >
+              <CardJob
+                image={job.image}
+                title={job.title}
+                description={job.description}
+              />
+            </div>
           ))}
         </div>
       </div>

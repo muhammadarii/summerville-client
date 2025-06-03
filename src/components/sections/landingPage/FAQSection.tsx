@@ -1,5 +1,4 @@
-import { RevealOnScrollDown } from "@/animations/RevealOnScrollDown";
-import { RevealOnScrollLeft } from "@/animations/RevealOnScrollLeft";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
 import { HeadTitle } from "@/components/parts/HeadTitle";
 import {
   Accordion,
@@ -44,13 +43,13 @@ const data = [
 export const FAQSection = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-8">
-      <RevealOnScrollDown>
+      <RevealOnScroll from={{ opacity: 0, y: -100 }}>
         <HeadTitle
           title="Frequently Asked Questions"
           description="Join us today and be part of the future. Our platform is designed to empower you with the tools and resources you need to succeed in the digital world."
         />
-      </RevealOnScrollDown>
-      <RevealOnScrollLeft>
+      </RevealOnScroll>
+      <RevealOnScroll from={{ opacity: 0, x: -100 }}>
         <div className="flex flex-col lg:grid md:grid-cols-2 items-start justify-center w-full gap-x-20 gap-y-4 mt-8 px-4 md:px-0">
           {data.map((item, index) => (
             <Accordion key={index} type="single" collapsible className="w-full">
@@ -72,7 +71,7 @@ export const FAQSection = () => {
             </Accordion>
           ))}
         </div>
-      </RevealOnScrollLeft>
+      </RevealOnScroll>
     </div>
   );
 };

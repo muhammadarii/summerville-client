@@ -1,3 +1,5 @@
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
+
 const data = [
   {
     id: 1,
@@ -28,16 +30,18 @@ const data = [
 export const WorkDescriptions = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-10">
-      <div className="grid grid-cols-2 gap-8">
-        {data.map((item) => (
-          <div key={item.id} className="p-4 rounded-md shadow-2xl">
-            <h1 className="text-[#D8FF99] text-[18px] font-semibold">
-              {item.title}
-            </h1>
-            <p className="text-[12px] mt-8">{item.description}</p>
-          </div>
-        ))}
-      </div>
+      <RevealOnScroll from={{ opacity: 0, y: -100 }}>
+        <div className="grid grid-cols-2 gap-8">
+          {data.map((item) => (
+            <div key={item.id} className="p-4 rounded-md shadow-2xl">
+              <h1 className="text-[#D8FF99] text-[18px] font-semibold">
+                {item.title}
+              </h1>
+              <p className="text-[12px] mt-8">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </RevealOnScroll>
     </div>
   );
 };

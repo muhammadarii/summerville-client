@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
   },
   themeColor: "#000000",
-  manifest: "/site.webmanifest",
   robots: {
     index: true,
     follow: true,

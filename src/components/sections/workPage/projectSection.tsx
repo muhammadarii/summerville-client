@@ -1,4 +1,8 @@
+"use client";
 import { CardProject } from "@/components/parts/CardDesign";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
 const data = [
   {
@@ -68,28 +72,70 @@ const data = [
 ];
 
 export const ProjectSection = () => {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 50,
+          },
+          {
+            opacity: 1,
+            y: -50,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "bottom 20%",
+              toggleActions: "play reset play reverse",
+              markers: false,
+            },
+            delay: index * 0.1,
+          }
+        );
+      }
+    });
+  }, []);
+
   return (
     <>
-      <div className="flex flex-col py-20">
-        <h1 className="text-4xl font-bold">At summerville</h1>
-        <p className="text-[14px] font-light mt-2">
-          We have had the privilege of working with a diverse range of clients
-          and delivering exceptional digital products that drive success.
-        </p>
-        <div className="bg-[#262626] p-4 rounded-md w-fit mt-4 text-[12px] font-light">
-          Here are ten examples of our notable works:
+      <RevealOnScroll
+        from={{ opacity: 0, x: -100 }}
+        className="flex items-start justify-start"
+      >
+        <div className="flex flex-col py-20">
+          <h1 className="text-4xl font-bold">At summerville</h1>
+          <p className="text-[14px] font-light mt-2">
+            We have had the privilege of working with a diverse range of clients
+            and delivering exceptional digital products that drive success.
+          </p>
+          <div className="bg-[#262626] p-4 rounded-md w-fit mt-4 text-[12px] font-light">
+            Here are ten examples of our notable works:
+          </div>
         </div>
-      </div>
+      </RevealOnScroll>
       <div className="grid grid-cols-2 items-start justify-items-center gap-10">
         {data.map((item, index) => (
-          <CardProject
+          <div
             key={index}
-            image={item.image}
-            title={item.title}
-            tag={item.tag}
-            description={item.description}
-            url={item.url}
-          />
+            ref={(el) => {
+              cardsRef.current[index] = el;
+            }}
+            className="w-full"
+          >
+            <CardProject
+              image={item.image}
+              title={item.title}
+              tag={item.tag}
+              description={item.description}
+              url={item.url}
+            />
+          </div>
         ))}
       </div>
     </>
