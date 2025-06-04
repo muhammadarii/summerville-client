@@ -30,7 +30,7 @@ const data = [
 export const WorkDescriptions = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-10">
-      <RevealOnScroll from={{ opacity: 0, y: -100 }}>
+      <RevealOnScroll from={{ opacity: 0, y: 100 }}>
         <div className="grid grid-cols-2 gap-8">
           {data.map((item) => (
             <div key={item.id} className="p-4 rounded-md shadow-2xl">
