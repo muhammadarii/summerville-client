@@ -10,10 +10,7 @@ import spotify from "@/assets/images/Spotify.png";
 import slack from "@/assets/images/Slack.png";
 import amazon from "@/assets/images/Amazon.png";
 import adobe from "@/assets/images/Adobe.png";
-import { RevealOnScrollUp } from "@/animations/RevealOnScrollUp";
-import { RevealOnScrollDown } from "@/animations/RevealOnScrollDown";
-import { RevealOnScrollLeft } from "@/animations/RevealOnScrollLeft";
-import { RevealOnScrollRight } from "@/animations/RevealOnScrollRight";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
 const logos = [zapier, zoom, spotify, slack, amazon, adobe];
 const repeated = [...logos, ...logos, ...logos];
@@ -21,20 +18,20 @@ const repeated = [...logos, ...logos, ...logos];
 export const HeroSection = () => {
   return (
     <div className="relative flex flex-col items-center justify-center ">
-      <RevealOnScrollUp>
+      <RevealOnScroll from={{ opacity: 0, y: 100 }}>
         <Image
           src={AbstractDesign}
           alt="Abstract Design"
           className="mt-[280px] md:mt-[200px] md:h-full object-fill md:object-cover"
         />
-      </RevealOnScrollUp>
+      </RevealOnScroll>
       <div className="absolute top-[-30px] md:top-[-130px] left-0 w-full h-full flex flex-col items-center justify-center">
-        <RevealOnScrollLeft>
+        <RevealOnScroll from={{ opacity: 0, x: -100 }}>
           <h1 className="text-2xl lg:text-5xl font-bold text-center text-white">
             Empowering your business through trusted and scalable IT services
           </h1>
-        </RevealOnScrollLeft>
-        <RevealOnScrollDown>
+        </RevealOnScroll>
+        <RevealOnScroll from={{ opacity: 0, y: -100 }}>
           <p className="hidden md:block mt-4 text-base text-center text-gray-300">
             Discover the power of our platform and how it can transform your
             digital experience. Join us today and be part of the future.
@@ -59,13 +56,15 @@ export const HeroSection = () => {
               good.
             </p>
           </div>
-        </RevealOnScrollDown>
-        <RevealOnScrollRight>
-          <div className="flex flex-row items-center justify-center mt-6 gap-2">
+        </RevealOnScroll>
+        <div className="flex flex-row items-center justify-center mt-6 gap-2">
+          <RevealOnScroll from={{ opacity: 0, x: -100 }}>
             <Button variant={"secondary"}>Our Works</Button>
+          </RevealOnScroll>
+          <RevealOnScroll from={{ opacity: 0, x: 100 }}>
             <Button variant={"primary"}>Contact Us</Button>
-          </div>
-        </RevealOnScrollRight>
+          </RevealOnScroll>
+        </div>
       </div>
 
       <div className="flex flex-col items-center justify-center mt-[-30px]">

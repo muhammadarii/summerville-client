@@ -1,15 +1,14 @@
-import { RevealOnScrollLeft } from "@/animations/RevealOnScrollLeft";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Slider } from "../ui/slider";
-import { RevealOnScrollRight } from "@/animations/RevealOnScrollRight";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
 export const ContactForm = () => {
   return (
     <div className="flex items-center justify-center">
       <form className="flex flex-col w-[850px] gap-4">
         <div className="flex flex-row items-center gap-4 mt-8">
-          <RevealOnScrollLeft>
+          <RevealOnScroll from={{ opacity: 0, x: -100 }}>
             <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
               <label>Full Name</label>
               <Input
@@ -18,8 +17,8 @@ export const ContactForm = () => {
                 placeholder="type here"
               />
             </div>
-          </RevealOnScrollLeft>
-          <RevealOnScrollRight>
+          </RevealOnScroll>
+          <RevealOnScroll from={{ opacity: 0, x: 100 }}>
             <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
               <label>Email</label>
               <Input
@@ -28,7 +27,7 @@ export const ContactForm = () => {
                 placeholder="type here"
               />
             </div>
-          </RevealOnScrollRight>
+          </RevealOnScroll>
         </div>
         <div className="relative w-full h-[200px] bg-[#242424] border-[#262626] rounded-xl">
           <div className="absolute top-[40px] left-[40px]">

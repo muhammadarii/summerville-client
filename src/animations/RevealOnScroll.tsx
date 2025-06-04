@@ -6,7 +6,11 @@ import { RevealOnScrollProps } from "@/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const RevealOnScrollUp = ({ children, from }: RevealOnScrollProps) => {
+export const RevealOnScroll = ({
+  children,
+  from,
+  className,
+}: RevealOnScrollProps) => {
   const elRef = useRef(null);
 
   useEffect(() => {
@@ -18,8 +22,6 @@ export const RevealOnScrollUp = ({ children, from }: RevealOnScrollProps) => {
           end: "bottom 5%",
           toggleActions: "play reset play reverse",
         },
-        opacity: 0,
-        y: 100,
         duration: 2,
         ease: "power3.out",
         ...from,
@@ -32,7 +34,7 @@ export const RevealOnScrollUp = ({ children, from }: RevealOnScrollProps) => {
   return (
     <div
       ref={elRef}
-      className="relative flex flex-col items-center justify-center w-full"
+      className={`relative flex flex-col items-center justify-center w-full ${className}`}
     >
       {children}
     </div>

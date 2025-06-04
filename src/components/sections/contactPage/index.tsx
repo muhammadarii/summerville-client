@@ -11,29 +11,36 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { FAQSection } from "../landingPage/FAQSection";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
 const ContactPageSection = () => {
   return (
     <div className="flex flex-col container mx-auto">
-      <HeadTitle
-        title="Contact Us"
-        description="Get in touch with us today and let us help you with any questions or inquiries you may have."
-      />
-      <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mt-5">
-        <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
-          <FaRegEnvelope className="text-[#9EFF00] text-[18px]" />
-          <p className="text-[12px] font-light">work@summerville.com</p>
+      <RevealOnScroll from={{ opacity: 0, y: -100 }}>
+        <HeadTitle
+          title="Contact Us"
+          description="Get in touch with us today and let us help you with any questions or inquiries you may have."
+        />
+      </RevealOnScroll>
+      <RevealOnScroll from={{ opacity: 0, x: -100 }}>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mt-5">
+          <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
+            <FaRegEnvelope className="text-[#9EFF00] text-[18px]" />
+            <p className="text-[12px] font-light">work@summerville.com</p>
+          </div>
+          <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
+            <FaPhone className="text-[#9EFF00] text-[18px]" />
+            <p className="text-[12px] font-light">+62 812 7587 9191</p>
+          </div>
+          <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
+            <FaLocationArrow className="text-[#9EFF00] text-[18px]" />
+            <p className="text-[12px] font-light">Tangerang, Indonesia</p>
+          </div>
         </div>
-        <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
-          <FaPhone className="text-[#9EFF00] text-[18px]" />
-          <p className="text-[12px] font-light">+62 812 7587 9191</p>
-        </div>
-        <div className="flex flex-row items-center gap-2 bg-[#262626] p-4 rounded-lg shadow-md">
-          <FaLocationArrow className="text-[#9EFF00] text-[18px]" />
-          <p className="text-[12px] font-light">Tangerang, Indonesia</p>
-        </div>
-      </div>
-      <ContactForm />
+      </RevealOnScroll>
+      <RevealOnScroll from={{ opacity: 0, y: 100 }}>
+        <ContactForm />
+      </RevealOnScroll>
       <div className="flex flex-row items-center justify-center my-10 gap-4">
         <div className="flex flex-row items-center gap-4">
           <p className="font-light text-[14px]">Operating Days</p>
