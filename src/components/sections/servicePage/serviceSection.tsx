@@ -1,4 +1,7 @@
 "use client";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 import {
   FaRegEdit,
   FaRegCopy,
@@ -122,41 +125,77 @@ const data = [
 ];
 
 export const ServiceSection = () => {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            x: -50,
+          },
+          {
+            opacity: 1,
+            x: 50,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "bottom 20%",
+              toggleActions: "play reset play reverse",
+              markers: false,
+            },
+            delay: index * 0.1,
+          }
+        );
+      }
+    });
+  }, []);
   return (
     <div className="flex flex-col px-4  py-10 gap-20">
       {data.map((section) => (
         <div key={section.id} className="flex flex-col gap-6">
-          <h1 className="text-3xl font-bold text-white">{section.title}</h1>
-          <p className="text-sm text-gray-300 max-w-3xl">
-            {section.description}
-          </p>
-          <div className="flex items-center justify-start bg-[#262626] w-fit rounded-md px-3 py-1 text-sm text-white">
-            Our {section.title.toLowerCase()} services include:
-          </div>
-
-          {section.service.map((service, index) => (
-            <div key={index}>
-              <h2 className="mt-6 text-xl font-semibold text-white">
-                {service.nameService}
-              </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                {service.serviceType.map((type, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col items-start bg-[#1e1e1e] p-5 rounded-lg"
-                  >
-                    <div className="flex items-center justify-center bg-black rounded-md p-3 mb-4">
-                      {type.icon}
-                    </div>
-                    <h3 className="text-white text-lg font-medium">
-                      {type.name}
-                    </h3>
-                  </div>
-                ))}
-              </div>
+          <RevealOnScroll
+            from={{ opacity: 0, x: -100 }}
+            className="flex flex-col items-start"
+          >
+            <h1 className="text-3xl font-bold text-white">{section.title}</h1>
+            <p className="text-sm text-gray-300 max-w-3xl">
+              {section.description}
+            </p>
+            <div className="flex items-center justify-start bg-[#262626] w-fit rounded-md px-3 py-1 text-sm text-white">
+              Our {section.title.toLowerCase()} services include:
             </div>
-          ))}
+          </RevealOnScroll>
+
+          <RevealOnScroll from={{ opacity: 0, y: 100 }}>
+            {section.service.map((service, index) => (
+              <div key={index}>
+                <h2 className="mt-6 text-xl font-semibold text-white">
+                  {service.nameService}
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                  {service.serviceType.map((type, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col items-start bg-[#1e1e1e] p-5 rounded-lg"
+                    >
+                      <div className="flex items-center justify-center bg-black rounded-md p-3 mb-4">
+                        {type.icon}
+                      </div>
+                      <h3 className="text-white text-lg font-medium">
+                        {type.name}
+                      </h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </RevealOnScroll>
         </div>
       ))}
     </div>
