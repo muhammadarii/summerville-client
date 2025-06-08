@@ -5,10 +5,10 @@ import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
 export const ContactForm = () => {
   return (
-    <div className="flex items-center justify-center">
-      <form className="flex flex-col w-[850px] gap-4">
+    <div className="flex items-center justify-center overflow-x-hidden">
+      <form className="flex flex-col w-screen lg:w-[850px] gap-4 p-4 lg:p-0">
         <div className="flex flex-row items-center gap-4 mt-8">
-          <RevealOnScroll from={{ opacity: 0, x: -100 }}>
+          <RevealOnScroll from={{ opacity: 0, x: -50 }}>
             <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
               <label>Full Name</label>
               <Input
@@ -18,7 +18,7 @@ export const ContactForm = () => {
               />
             </div>
           </RevealOnScroll>
-          <RevealOnScroll from={{ opacity: 0, x: 100 }}>
+          <RevealOnScroll from={{ opacity: 0, x: 50 }}>
             <div className="w-full h-[134px] px-4 py-8 bg-[#242424] border-[#262626] rounded-xl">
               <label>Email</label>
               <Input
@@ -29,10 +29,10 @@ export const ContactForm = () => {
             </div>
           </RevealOnScroll>
         </div>
-        <div className="relative w-full h-[200px] bg-[#242424] border-[#262626] rounded-xl">
+        <div className="relative w-full h-[250px] lg:h-[200px] bg-[#242424] border-[#262626] rounded-xl">
           <div className="absolute top-[40px] left-[40px]">
             <p className="font-semibold">Why are you contacting us?</p>
-            <div className="grid grid-cols-2 mt-4 gap-8 lg:gap-x-[200px] gap-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 mt-4 gap-8 lg:gap-x-[200px] gap-y-4">
               <div className="flex flex-row gap-2 items-center">
                 <Input type="checkbox" className="w-4 h-4" />
                 <label>Web Design</label>

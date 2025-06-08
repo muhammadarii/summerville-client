@@ -7,8 +7,8 @@ export const WelcomeSection = () => {
         from={{ opacity: 0, x: -100 }}
         className="flex items-start justify-start"
       >
-        <div className="w-[870px]">
-          <h1 className="text-3xl">
+        <div className="w-screen lg:w-[870px] px-4 lg:px-0">
+          <h1 className="lg:text-3xl">
             Welcome to summerville, where talent meets opportunity
           </h1>
           <p className="text-[12px] font-extralight mt-4">
