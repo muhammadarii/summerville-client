@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "summerville",
     images: [
       {
-        url: "/_next/static/media/summerville2.png",
+        url: "../../assets/images/summerville2.png",
         width: 1200,
         height: 630,
         alt: "Summerville Agency",
@@ -23,10 +23,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-    shortcut: "/favicon-32x32.png",
   },
-  themeColor: "#000000",
   robots: {
     index: true,
     follow: true,
