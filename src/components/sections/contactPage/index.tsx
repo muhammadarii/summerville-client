@@ -41,7 +41,7 @@ const ContactPageSection = () => {
       <RevealOnScroll from={{ opacity: 0, y: 100 }}>
         <ContactForm />
       </RevealOnScroll>
-      <div className="flex flex-row items-center justify-center my-10 gap-4">
+      <div className="flex flex-col lg:flex-row items-center justify-center my-10 gap-4">
         <div className="flex flex-row items-center gap-4">
           <p className="font-light text-[14px]">Operating Days</p>
           <div className="bg-[#262626] p-4 rounded-md font-light text-[14px]">

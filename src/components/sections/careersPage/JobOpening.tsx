@@ -63,7 +63,7 @@ export const JobOpening = () => {
           {
             opacity: 1,
             y: -50,
-            duration: 0.5,
+            duration: 0.1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
@@ -80,7 +80,7 @@ export const JobOpening = () => {
   }, []);
 
   return (
-    <div className="flex flex-col mt-10">
+    <div className="flex flex-col mt-10 px-4 lg:px-0">
       <h1 className="text-3xl">Current Openings</h1>
       <p className="text-[12px] font-extralight mt-4 lg:pr-8">
         We are always on the lookout for talented individuals who are passionate
@@ -89,7 +89,7 @@ export const JobOpening = () => {
         mission, we encourage you to explore our open positions.
       </p>
       <div className="flex items-center justify-center">
-        <div className="mt-10 grid grid-cols-3 gap-4">
+        <div className="mt-20 lg:mt-10 grid grid-cols-1 lg:grid-cols-3 gap-4">
           {data.map((job, index) => (
             <div
               key={index}

@@ -86,7 +86,7 @@ export const ProjectSection = () => {
           {
             opacity: 1,
             y: -50,
-            duration: 0.5,
+            duration: 0.1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
@@ -119,7 +119,7 @@ export const ProjectSection = () => {
           </div>
         </div>
       </RevealOnScroll>
-      <div className="grid grid-cols-2 items-start justify-items-center gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-start justify-items-center gap-10">
         {data.map((item, index) => (
           <div
             key={index}
