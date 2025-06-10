@@ -86,12 +86,12 @@ export const ProjectSection = () => {
           {
             opacity: 1,
             y: -50,
-            duration: 0.1,
+            duration: 0.5,
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 90%",
-              end: "bottom 20%",
+              start: "top 95%",
+              end: "bottom 10%",
               toggleActions: "play reset play reverse",
               markers: false,
             },

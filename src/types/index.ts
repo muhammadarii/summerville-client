@@ -14,7 +14,7 @@ interface CareerResponse {
   careers: Career[];
 }
 
-export interface Career {
+interface Career {
   _id: string;
   title: string;
   description: string;

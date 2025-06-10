@@ -72,7 +72,7 @@ export const CardJob: React.FC<CardServiceProps> = ({
       </div>
       <Button
         variant="primary"
-        className="absolute bottom-4 left-4 right-4 w-[calc(100%-2rem)]"
+        className="absolute bottom-4 left-4 right-4 w-[calc(100%-2rem)] cursor-pointer"
       >
         See Detail
       </Button>
