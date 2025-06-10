@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/parts/Navbar";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const hiddenPaths = ["/login", "/register", "/dashboard"];
 
@@ -11,10 +12,12 @@ export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {!hideNavbar && <Navbar />}
-      <main className={!hideNavbar ? "mt-[90px] lg:px-[60px] px-2" : ""}>
-        {children}
-      </main>
+      <QueryClientProvider client={new QueryClient()}>
+        {!hideNavbar && <Navbar />}
+        <main className={!hideNavbar ? "mt-[90px] lg:px-[60px] px-2" : ""}>
+          {children}
+        </main>
+      </QueryClientProvider>
     </>
   );
 };
