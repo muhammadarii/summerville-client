@@ -1,9 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchCarrers } from "../api/careerApi";
+import { fetchAllCarrers, fetchCareerById } from "../api/careerApi";
 
 export const useGetAllCareers = () => {
   return useQuery({
     queryKey: ["careers"],
-    queryFn: fetchCarrers,
+    queryFn: fetchAllCarrers,
+  });
+};
+
+export const useGetCareerById = (_id: string) => {
+  return useQuery({
+    queryKey: ["careers"],
+    queryFn: () => fetchCareerById(_id),
+    enabled: !!_id,
   });
 };

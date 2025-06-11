@@ -2,6 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 import { LuArrowUpRight } from "react-icons/lu";
+import Link from "next/link";
 
 interface CardServiceProps {
   icon?: React.ReactNode;
@@ -10,6 +11,7 @@ interface CardServiceProps {
   title?: string;
   description?: string;
   url?: string;
+  id?: string;
 }
 
 export const CardService: React.FC<CardServiceProps> = ({
@@ -49,11 +51,11 @@ export const CardExperience: React.FC<CardServiceProps> = ({
     </div>
   );
 };
-
 export const CardJob: React.FC<CardServiceProps> = ({
   image,
   title,
   description,
+  id,
 }) => {
   return (
     <div className="relative p-4 shadow-2xl rounded-md w-full h-[430px] overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out">
@@ -70,12 +72,14 @@ export const CardJob: React.FC<CardServiceProps> = ({
         <h1 className="text-white text-lg font-semibold">{title}</h1>
         <p className="text-[10px] text-gray-300 font-light">{description}</p>
       </div>
-      <Button
-        variant="primary"
-        className="absolute bottom-4 left-4 right-4 w-[calc(100%-2rem)] cursor-pointer"
-      >
-        See Detail
-      </Button>
+      <Link href={`/careers/detail/${id}`}>
+        <Button
+          variant="primary"
+          className="absolute bottom-4 left-4 right-4 w-[calc(100%-2rem)] cursor-pointer"
+        >
+          See Detail
+        </Button>
+      </Link>
     </div>
   );
 };

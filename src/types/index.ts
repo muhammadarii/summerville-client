@@ -4,22 +4,22 @@ export interface RevealOnScrollProps {
   className?: string;
 }
 
-export interface CareerProps {
-  data: CareerResponse | undefined;
-  careers: Career[] | undefined;
-}
-
-interface CareerResponse {
+export interface AllCareerProps {
   message: string;
   careers: Career[];
 }
 
-interface Career {
+export interface CareerByIdProps {
+  career: Career;
+}
+
+export interface Career {
   _id: string;
   title: string;
   description: string;
   imageUrl: string;
   requirements: string[];
+  responsibility: string[];
   applicants: Applicant[];
 }
 

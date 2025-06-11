@@ -1,13 +1,13 @@
 "use client";
 import { RevealOnScroll } from "@/animations/RevealOnScroll";
 import { CardJob } from "@/components/parts/CardDesign";
-import { LoadingSkeleton } from "@/components/parts/LoadingSkeleton";
+import { LoadingSkeletonCareer } from "@/components/parts/LoadingSkeleton";
 import { useGetAllCareers } from "@/hooks/useCareers";
 
 export const JobOpening = () => {
   const { data, isLoading, error } = useGetAllCareers();
 
-  if (isLoading) return <LoadingSkeleton />;
+  if (isLoading) return <LoadingSkeletonCareer />;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -25,6 +25,7 @@ export const JobOpening = () => {
             {data?.careers?.map((career, index) => (
               <div key={index} className="w-full">
                 <CardJob
+                  id={career._id}
                   image={career.imageUrl}
                   title={career.title}
                   description={career.description}
