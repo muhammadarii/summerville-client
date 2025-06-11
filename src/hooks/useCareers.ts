@@ -8,10 +8,10 @@ export const useGetAllCareers = () => {
   });
 };
 
-export const useGetCareerById = (_id: string) => {
+export const useGetCareerById = (id: string) => {
   return useQuery({
     queryKey: ["careers"],
-    queryFn: () => fetchCareerById(_id),
-    enabled: !!_id,
+    queryFn: () => fetchCareerById(id),
+    enabled: !!id,
   });
 };

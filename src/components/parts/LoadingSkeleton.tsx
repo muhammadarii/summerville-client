@@ -18,7 +18,7 @@ export const LoadingSkeletonCareer = () => {
             <div className="mt-2 h-3 w-4/5 bg-[#2c2c2e] rounded"></div>
 
             <div className="flex flex-row items-center justify-between mt-20">
-              <div className="bg-[#2c2c2e] h-8 w-full rounded-md"></div>
+              <div className="bg-[#9EFF00] h-8 w-full rounded-md"></div>
             </div>
           </div>
         ))}
@@ -47,7 +47,7 @@ export const LoadingSkeletonDetailCareer = () => {
         </div>
       </div>
 
-      <div className="mt-[150px] w-full h-full grid grid-cols-2 gap-4 mb-96">
+      <div className="mt-[150px] w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-4 mb-96">
         {/* Requirements Skeleton */}
         <div className="p-6 bg-[#262626] rounded-2xl shadow-2xl">
           <div className="h-6 w-32 bg-gray-500 rounded-md mb-4" />

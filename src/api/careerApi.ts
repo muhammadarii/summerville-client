@@ -5,7 +5,7 @@ export const fetchAllCarrers = async (): Promise<AllCareerProps> =>
     res.json()
   );
 
-export const fetchCareerById = async (_id: string): Promise<CareerByIdProps> =>
-  await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}careers/${_id}`).then((res) =>
+export const fetchCareerById = async (id: string): Promise<CareerByIdProps> =>
+  await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}careers/${id}`).then((res) =>
     res.json()
   );

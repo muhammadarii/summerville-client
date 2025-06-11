@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,24 +12,39 @@ export const OnScrollAnimation = () => {
 
     elements.forEach((el) => {
       const animType = el.dataset.anim || "fade-up";
-      const animation = {
+
+      const animationProps: gsap.TweenVars = {
         opacity: 0,
-        w: animType === "fade-down" ? -50 : 0,
-        y: animType === "fade-up" ? 50 : 0,
-        x: animType === "fade-left" ? -50 : 0,
-        z: animType === "fade-right" ? 50 : 0,
+        y: 0,
+        x: 0,
         duration: 1,
         ease: "power3.out",
       };
 
+      switch (animType) {
+        case "fade-up":
+          animationProps.y = 50;
+          break;
+        case "fade-down":
+          animationProps.y = -50;
+          break;
+        case "fade-left":
+          animationProps.x = -50;
+          break;
+        case "fade-right":
+          animationProps.x = 50;
+          break;
+      }
+
       gsap.from(el, {
+        ...animationProps,
         scrollTrigger: {
           trigger: el,
-          start: "top 95%",
-          end: "bottom 5%",
-          toggleActions: "play reset play reverse",
+          start: "top 60%",
+          end: "bottom 40%",
+          toggleActions: "play none none reverse",
+          markers: true,
         },
-        ...animation,
       });
     });
   }, []);
