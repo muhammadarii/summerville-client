@@ -12,6 +12,7 @@ interface CardServiceProps {
   description?: string;
   url?: string;
   id?: string;
+  createdAt?: string;
 }
 
 export const CardService: React.FC<CardServiceProps> = ({
@@ -56,6 +57,7 @@ export const CardJob: React.FC<CardServiceProps> = ({
   title,
   description,
   id,
+  createdAt,
 }) => {
   return (
     <div className="relative p-4 shadow-2xl rounded-md w-full h-[430px] overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out">
@@ -71,6 +73,9 @@ export const CardJob: React.FC<CardServiceProps> = ({
       <div className="mt-4 flex flex-col gap-2">
         <h1 className="text-white text-lg font-semibold">{title}</h1>
         <p className="text-[10px] text-gray-300 font-light">{description}</p>
+        <p className="text-[10px] text-black font-light bg-white/50 backdrop-blur-md py-1 px-2 w-fit rounded-md">
+          Publish on : {createdAt?.slice(0, 10)}
+        </p>
       </div>
       <Link href={`/careers/detail/${id}`}>
         <Button

@@ -7,13 +7,22 @@ import { useGetCareerById } from "@/hooks/useCareers";
 import { useParams } from "next/navigation";
 import { JobDescription } from "./JobDescription";
 import { JobInformation } from "./JobInformaiton";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { ApplyForm } from "./ApplyForm";
 
 const DetailCareerPageSection = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useGetCareerById(id as string);
+  const [showApplyForm, setShowApplyForm] = useState(false);
 
   if (isLoading) return <LoadingSkeletonDetailCareer />;
   if (error) return <div>Error: {error.message}</div>;
+
+  const handleToggleForm = () => setShowApplyForm(!showApplyForm);
+  const handleCloseForm = () => {
+    setShowApplyForm(false);
+  };
 
   return (
     <div className="flex flex-col overflow-x-hidden">
@@ -33,6 +42,17 @@ const DetailCareerPageSection = () => {
             data={data?.career?.requirements ?? []}
           />
         </RevealOnScroll>
+        <div />
+        <div className="flex items-center justify-end">
+          <Button
+            onClick={handleToggleForm}
+            variant="primary"
+            className="w-full mt-4"
+          >
+            Apply Now
+          </Button>
+          {showApplyForm && <ApplyForm onClose={handleCloseForm} />}
+        </div>
       </div>
       <Footer />
     </div>

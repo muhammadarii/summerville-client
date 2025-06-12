@@ -14,9 +14,13 @@ const Menu = [
 
 interface MenuTitleProps {
   className?: string;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MenuTitle: React.FC<MenuTitleProps> = ({ className }) => {
+export const MenuTitle: React.FC<MenuTitleProps> = ({
+  className,
+  setIsOpen,
+}) => {
   const [currentPath, setCurrentPath] = useState<string | null>(null);
   const pathname = usePathname();
 
@@ -32,6 +36,7 @@ export const MenuTitle: React.FC<MenuTitleProps> = ({ className }) => {
         <Link
           key={index}
           href={item.link}
+          onClick={() => setIsOpen && setIsOpen(false)}
           className={`text-sm font-light transition ${
             isActive(item.link)
               ? "text-[#9EFF00] font-medium border-b-2 border-[#9EFF00]"

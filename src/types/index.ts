@@ -21,6 +21,7 @@ export interface Career {
   requirements: string[];
   responsibility: string[];
   applicants: Applicant[];
+  createdAt: string;
 }
 
 interface Applicant {
