@@ -51,7 +51,10 @@ export const Navbar = () => {
             className="absolute top-0 right-0 w-full h-screen bg-black opacity-50 -z-10"
           />
           <div className="mt-4 flex flex-col gap-4 lg:hidden bg-black p-4 rounded-lg shadow-lg items-center">
-            <MenuTitle className="flex flex-col items-center gap-3" />
+            <MenuTitle
+              className="flex flex-col items-center gap-3"
+              setIsOpen={setIsOpen}
+            />
             <Link href="/contact">
               <Button variant="primary" className="w-fit mt-2">
                 Contact Us

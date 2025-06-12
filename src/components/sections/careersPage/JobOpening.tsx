@@ -29,6 +29,7 @@ export const JobOpening = () => {
                   image={career.imageUrl}
                   title={career.title}
                   description={career.description}
+                  createdAt={career.createdAt}
                 />
               </div>
             ))}
