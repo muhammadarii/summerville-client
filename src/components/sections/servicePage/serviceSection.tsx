@@ -19,6 +19,14 @@ import {
   FaColumns,
   FaCogs,
   FaCodeBranch,
+  FaProjectDiagram,
+  FaClipboardCheck,
+  FaTasks,
+  FaUsersCog,
+  FaChartLine,
+  FaRegClock,
+  FaFileContract,
+  FaBug,
 } from "react-icons/fa";
 
 const data = [
@@ -122,6 +130,56 @@ const data = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "Project Management",
+    description:
+      "At SummerVille, we ensure every project is delivered on time, within scope, and exceeds expectations. Our project management service guarantees transparency, communication, and efficiency.",
+    service: [
+      {
+        nameService: "Agile Project Management",
+        serviceType: [
+          {
+            icon: <FaProjectDiagram className="text-[#9EFF00] w-6 h-6" />,
+            name: "Scrum and Kanban Implementation",
+          },
+          {
+            icon: <FaClipboardCheck className="text-[#9EFF00] w-6 h-6" />,
+            name: "Sprint Planning and Retrospectives",
+          },
+          {
+            icon: <FaTasks className="text-[#9EFF00] w-6 h-6" />,
+            name: "Task Tracking and Progress Monitoring",
+          },
+          {
+            icon: <FaUsersCog className="text-[#9EFF00] w-6 h-6" />,
+            name: "Team Coordination and Communication",
+          },
+        ],
+      },
+      {
+        nameService: "Risk & Quality Management",
+        serviceType: [
+          {
+            icon: <FaChartLine className="text-[#9EFF00] w-6 h-6" />,
+            name: "Project Risk Identification & Mitigation",
+          },
+          {
+            icon: <FaRegClock className="text-[#9EFF00] w-6 h-6" />,
+            name: "Time and Resource Management",
+          },
+          {
+            icon: <FaFileContract className="text-[#9EFF00] w-6 h-6" />,
+            name: "Documentation and Deliverables Review",
+          },
+          {
+            icon: <FaBug className="text-[#9EFF00] w-6 h-6" />,
+            name: "Quality Assurance and Testing Oversight",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const ServiceSection = () => {
@@ -166,7 +224,7 @@ export const ServiceSection = () => {
             <p className="text-sm text-gray-300 max-w-3xl">
               {section.description}
             </p>
-            <div className="flex items-center justify-start bg-[#262626] w-fit rounded-md px-3 py-1 text-sm text-white">
+            <div className="flex items-center justify-start bg-[#262626] w-fit rounded-md px-3 py-1 text-sm text-white mt-4">
               Our {section.title.toLowerCase()} services include:
             </div>
           </RevealOnScroll>
