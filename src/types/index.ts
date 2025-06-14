@@ -31,3 +31,18 @@ interface Applicant {
   phone: string;
   resume: string;
 }
+
+export interface AllWorkProps {
+  message: string;
+  works: Work[];
+}
+
+export interface Work {
+  _id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  tag: string;
+  createdAt: string;
+}

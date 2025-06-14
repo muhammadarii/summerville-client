@@ -1,106 +1,83 @@
 "use client";
-import { CardProject } from "@/components/parts/CardDesign";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { RevealOnScroll } from "@/animations/RevealOnScroll";
 
-const data = [
-  {
-    title: "Tech Innovators",
-    description:
-      "We partnered with Tech Innovators to create a cutting-edge mobile application that revolutionized the way users interact with technology. The app featured intuitive navigation, real-time updates, and advanced security measures, earning rave reviews from users and industry experts alike.",
-    image: "/images/tech-innovators.png",
-    tag: "Mobile App Development for Tech Innovators",
-    url: "https://tech-innovators.com",
-  },
-  {
-    title: "Green Earth Initiative",
-    description:
-      "For the Green Earth Initiative, we designed an interactive website that raised awareness about environmental issues. The site included engaging content, informative infographics, and a donation platform, helping the organization reach a wider audience and increase contributions.",
-    image: "/images/green-earth-initiative.png",
-    tag: "Website Design for Environmental Awareness",
-    url: "https://greenearthinitiative.org",
-  },
-  {
-    title: "HealthPlus",
-    description:
-      "We collaborated with HealthPlus to develop a comprehensive health and wellness platform. The platform featured personalized fitness plans, nutrition tracking, and telemedicine services, empowering users to take control of their health and well-being.",
-    image: "/images/healthplus.png",
-    tag: "Health and Wellness Platform Development",
-    url: "https://healthplus.com",
-  },
-  {
-    title: "EduTech Solutions",
-    description:
-      "EduTech Solutions engaged us to create an innovative e-learning platform that provided interactive courses and resources for students. The platform included features like progress tracking, quizzes, and community forums, enhancing the learning experience for users.",
-    image: "/images/edutech-solutions.png",
-    tag: "E-Learning Platform Development",
-    url: "https://edutechsolutions.com",
-  },
-  {
-    title: "Travel Explorer",
-    description:
-      "We designed a visually captivating travel booking website for Travel Explorer, enabling users to easily search and book flights, hotels, and vacation packages. The site featured stunning imagery, user reviews, and a seamless booking process.",
-    image: "/images/travel-explorer.png",
-    tag: "Travel Booking Website Design",
-    url: "https://travelexplorer.com",
-  },
-  {
-    title: "Foodie Haven",
-    description:
-      "Foodie Haven partnered with us to create a food delivery app that connected users with local restaurants. The app featured real-time order tracking, personalized recommendations, and secure payment options, making it a favorite among food enthusiasts.",
-    image: "/images/foodie-haven.png",
-    tag: "Food Delivery App Development",
-    url: "https://foodiehaven.com",
-  },
-  {
-    title: "Fitness Fusion",
-    description:
-      "We developed a fitness tracking app for Fitness Fusion that allowed users to monitor their workouts, set goals, and connect with trainers. The app's user-friendly interface and advanced analytics helped users achieve their fitness objectives.",
-    image: "/images/fitness-fusion.png",
-    tag: "Fitness Tracking App Development",
-    url: "https://fitnessfusion.com",
-  },
-  {
-    title: "Artistry Gallery",
-    description:
-      "Artistry Gallery engaged us to create an online art marketplace that showcased artists' works. The platform featured high-quality images, artist profiles, and secure payment options, providing a unique space for art enthusiasts to discover and purchase art.",
-    image: "/images/artistry-gallery.png",
-    tag: "Online Art Marketplace Development",
-    url: "https://artistrygallery.com",
-  },
-];
+import { CardProject } from "@/components/parts/CardDesign";
+import { RevealOnScroll } from "@/animations/RevealOnScroll";
+import { useGetAllWorks } from "@/hooks/useWorks";
+import { LoadingSkeletonWork } from "@/components/parts/LoadingSkeleton";
+
+// const data = [
+//   {
+//     title: "Tech Innovators",
+//     description:
+//       "We partnered with Tech Innovators to create a cutting-edge mobile application that revolutionized the way users interact with technology. The app featured intuitive navigation, real-time updates, and advanced security measures, earning rave reviews from users and industry experts alike.",
+//     image: "/images/tech-innovators.png",
+//     tag: "Mobile App Development for Tech Innovators",
+//     url: "https://tech-innovators.com",
+//   },
+//   {
+//     title: "Green Earth Initiative",
+//     description:
+//       "For the Green Earth Initiative, we designed an interactive website that raised awareness about environmental issues. The site included engaging content, informative infographics, and a donation platform, helping the organization reach a wider audience and increase contributions.",
+//     image: "/images/green-earth-initiative.png",
+//     tag: "Website Design for Environmental Awareness",
+//     url: "https://greenearthinitiative.org",
+//   },
+//   {
+//     title: "HealthPlus",
+//     description:
+//       "We collaborated with HealthPlus to develop a comprehensive health and wellness platform. The platform featured personalized fitness plans, nutrition tracking, and telemedicine services, empowering users to take control of their health and well-being.",
+//     image: "/images/healthplus.png",
+//     tag: "Health and Wellness Platform Development",
+//     url: "https://healthplus.com",
+//   },
+//   {
+//     title: "EduTech Solutions",
+//     description:
+//       "EduTech Solutions engaged us to create an innovative e-learning platform that provided interactive courses and resources for students. The platform included features like progress tracking, quizzes, and community forums, enhancing the learning experience for users.",
+//     image: "/images/edutech-solutions.png",
+//     tag: "E-Learning Platform Development",
+//     url: "https://edutechsolutions.com",
+//   },
+//   {
+//     title: "Travel Explorer",
+//     description:
+//       "We designed a visually captivating travel booking website for Travel Explorer, enabling users to easily search and book flights, hotels, and vacation packages. The site featured stunning imagery, user reviews, and a seamless booking process.",
+//     image: "/images/travel-explorer.png",
+//     tag: "Travel Booking Website Design",
+//     url: "https://travelexplorer.com",
+//   },
+//   {
+//     title: "Foodie Haven",
+//     description:
+//       "Foodie Haven partnered with us to create a food delivery app that connected users with local restaurants. The app featured real-time order tracking, personalized recommendations, and secure payment options, making it a favorite among food enthusiasts.",
+//     image: "/images/foodie-haven.png",
+//     tag: "Food Delivery App Development",
+//     url: "https://foodiehaven.com",
+//   },
+//   {
+//     title: "Fitness Fusion",
+//     description:
+//       "We developed a fitness tracking app for Fitness Fusion that allowed users to monitor their workouts, set goals, and connect with trainers. The app's user-friendly interface and advanced analytics helped users achieve their fitness objectives.",
+//     image: "/images/fitness-fusion.png",
+//     tag: "Fitness Tracking App Development",
+//     url: "https://fitnessfusion.com",
+//   },
+//   {
+//     title: "Artistry Gallery",
+//     description:
+//       "Artistry Gallery engaged us to create an online art marketplace that showcased artists' works. The platform featured high-quality images, artist profiles, and secure payment options, providing a unique space for art enthusiasts to discover and purchase art.",
+//     image: "/images/artistry-gallery.png",
+//     tag: "Online Art Marketplace Development",
+//     url: "https://artistrygallery.com",
+//   },
+// ];
 
 export const ProjectSection = () => {
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const { data, isLoading, error } = useGetAllWorks();
 
-  useEffect(() => {
-    cardsRef.current.forEach((card, index) => {
-      if (card) {
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            y: 50,
-          },
-          {
-            opacity: 1,
-            y: -50,
-            duration: 0.5,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 95%",
-              end: "bottom 10%",
-              toggleActions: "play reset play reverse",
-              markers: false,
-            },
-            delay: index * 0.1,
-          }
-        );
-      }
-    });
-  }, []);
+  if (isLoading) return <LoadingSkeletonWork />;
+  if (error) return <div>Error: {error.message}</div>;
+  console.log("data works:", data);
 
   return (
     <>
@@ -119,25 +96,22 @@ export const ProjectSection = () => {
           </div>
         </div>
       </RevealOnScroll>
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-start justify-items-center gap-10">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            ref={(el) => {
-              cardsRef.current[index] = el;
-            }}
-            className="w-full"
-          >
-            <CardProject
-              image={item.image}
-              title={item.title}
-              tag={item.tag}
-              description={item.description}
-              url={item.url}
-            />
-          </div>
-        ))}
-      </div>
+      <RevealOnScroll from={{ opacity: 0, y: 100 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start justify-items-center gap-10">
+          {data?.works?.map((work, index) => (
+            <div key={index} className="w-full">
+              <CardProject
+                id={work._id}
+                image={work.imageUrl}
+                title={work.title}
+                tag={work.tag}
+                description={work.description}
+                url={work.link}
+              />
+            </div>
+          ))}
+        </div>
+      </RevealOnScroll>
     </>
   );
 };
