@@ -73,3 +73,37 @@ export const LoadingSkeletonDetailCareer = () => {
     </div>
   );
 };
+
+export const LoadingSkeletonWork = () => {
+  return (
+    <div className="flex flex-col">
+      <div className="bg-[#2c2c2e] h-8 w-[300px] rounded-md mt-20"></div>
+      <div className="mt-8 h-3 w-full bg-[#2c2c2e] rounded"></div>
+      <div className="mt-2 h-3 w-2/5 bg-[#2c2c2e] rounded"></div>
+      <div className="grid grid-cols-2 w-full mt-20 items-center justify-center gap-8">
+        {[...Array(3)].map((_, index) => (
+          <div
+            key={index}
+            className="p-4 shadow-2xl rounded-md h-[600px] animate-pulse bg-[#1e1e1e]"
+          >
+            <div className="h-4 w-1/3 bg-[#3a3a3a] rounded mb-4" />
+
+            <div className="w-full h-[300px] bg-[#3a3a3a] rounded-md" />
+
+            <div className="mt-4 h-4 w-2/3 bg-[#3a3a3a] rounded" />
+
+            <div className="flex flex-row items-center justify-between mt-4">
+              <div className="h-8 w-24 bg-[#3a3a3a] rounded-md" />
+              <div className="h-8 w-8 bg-[#3a3a3a] rounded-md" />
+            </div>
+
+            <div className="mt-4 space-y-2">
+              <div className="h-3 w-full bg-[#3a3a3a] rounded" />
+              <div className="h-3 w-5/6 bg-[#3a3a3a] rounded" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
