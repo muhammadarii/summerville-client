@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useApplyJob } from "@/hooks/useApplyJob";
+import { applyJobSchema } from "@/validation/formApply";
 
 type Props = {
   onClose: () => void;
@@ -16,6 +17,8 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
     phone: "",
     resume: null as File | null,
   });
+
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const mutation = useApplyJob(careerId);
 
@@ -31,12 +34,17 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { name, email, phone, resume } = formData;
+    const validation = applyJobSchema.safeParse(formData);
 
-    if (!name || !email || !phone || !resume) {
-      alert("Please fill in all fields and upload your resume.");
+    if (!validation.success) {
+      const errors = Object.fromEntries(
+        validation.error.errors.map((err) => [err.path[0], err.message])
+      );
+      setFormErrors(errors);
       return;
     }
+
+    const { name, email, phone, resume } = validation.data;
 
     const formDataToSubmit = new FormData();
     formDataToSubmit.append("name", name);
@@ -46,12 +54,7 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
 
     mutation.mutate(formDataToSubmit, {
       onSuccess: () => {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          resume: null,
-        });
+        setFormData({ name: "", email: "", phone: "", resume: null });
         onClose();
       },
     });
@@ -80,6 +83,9 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
               value={formData.name}
               onChange={handleChange}
             />
+            {formErrors.name && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+            )}
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium mb-1">
@@ -94,6 +100,9 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
               value={formData.email}
               onChange={handleChange}
             />
+            {formErrors.email && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+            )}
           </div>
           <div>
             <label htmlFor="phone" className="block text-sm font-medium mb-1">
@@ -101,19 +110,25 @@ export const ApplyForm: React.FC<Props> = ({ onClose, careerId }) => {
             </label>
             <Input
               id="phone"
-              type="text"
+              type="number"
               className="border-0 border-b-2 rounded-none px-1 mt-2"
               placeholder="Enter your phone number"
               required
               value={formData.phone}
               onChange={handleChange}
             />
+            {formErrors.phone && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.phone}</p>
+            )}
           </div>
           <div>
             <label htmlFor="resume" className="block text-sm font-medium mb-1">
               Resume
             </label>
             <FileInputWithIcon id="resume" onFileSelect={handleFileChange} />
+            {formErrors.resume && (
+              <p className="text-red-500 text-sm mt-1">{formErrors.resume}</p>
+            )}
           </div>
           <Button variant={"primary"} type="submit" className="w-full">
             {mutation.isPending ? "Submitting..." : "Submit"}
