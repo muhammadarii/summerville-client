@@ -104,7 +104,7 @@ export const CardProject: React.FC<CardServiceProps> = ({
         alt="Project Image"
         width={300}
         height={200}
-        className="w-full h-[300px] object-cover rounded-md"
+        className="w-full h-[400px] object-contain rounded-md bg-white"
       />
       <p className="mt-4 text-[#98989A]">{title}</p>
       <div className=" flex flex-row items-center justify-between">
