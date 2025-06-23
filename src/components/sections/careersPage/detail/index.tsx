@@ -51,7 +51,9 @@ const DetailCareerPageSection = () => {
           >
             Apply Now
           </Button>
-          {showApplyForm && <ApplyForm onClose={handleCloseForm} />}
+          {showApplyForm && (
+            <ApplyForm onClose={handleCloseForm} careerId={id as string} />
+          )}
         </div>
       </div>
       <Footer />
