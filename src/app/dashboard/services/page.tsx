@@ -1,15 +1,12 @@
-import { AppSidebar } from "@/components/parts/Sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import React from "react";
+import { DashboardWrapper } from "../dashboardwrapper";
+import ServiceDashboardSection from "@/components/sections/Dashboard/serviceDashboardSection";
 
 const ServicesDashboardPage = () => {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <main>
-        <SidebarTrigger />
-      </main>
-    </SidebarProvider>
+    <DashboardWrapper>
+      <ServiceDashboardSection />
+    </DashboardWrapper>
   );
 };
 
