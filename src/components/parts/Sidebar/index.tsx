@@ -3,7 +3,6 @@ import {
   ChevronUp,
   Home,
   Inbox,
-  Search,
   Settings,
   User2,
 } from "lucide-react";
@@ -28,27 +27,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 const items = [
   {
-    title: "Service",
-    url: "#",
+    title: "Services",
+    url: "/dashboard/services",
     icon: Home,
   },
   {
-    title: "Work",
+    title: "Works",
     url: "#",
     icon: Inbox,
   },
   {
-    title: "Calendar",
+    title: "Careers",
     url: "#",
     icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
   },
   {
     title: "Settings",
@@ -63,7 +58,9 @@ export function AppSidebar() {
       <SidebarContent className="py-5">
         <SidebarGroup>
           <SidebarGroupLabel className="flex justify-center">
-            <Image src={Logo} alt="Logo" className="w-[150px] h-[50px]" />
+            <Link href="/dashboard">
+              <Image src={Logo} alt="Logo" className="w-[100px] h-[25px]" />
+            </Link>
           </SidebarGroupLabel>
           <SidebarGroupContent className="mt-5">
             <SidebarMenu>
