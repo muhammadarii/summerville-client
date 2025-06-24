@@ -17,11 +17,11 @@ const DashboardSection = () => {
             <h3 className="text-xl font-medium mb-2 text-white">
               Total Services
             </h3>
-            <p className="text-3xl font-bold text-[#9EFF00]">1,250</p>
+            <p className="text-3xl font-bold text-[#9EFF00]">12</p>
           </div>
           <div className="bg-black p-6 rounded-xl shadow hover:shadow-lg transition">
             <h3 className="text-xl font-medium mb-2 text-white">Total Works</h3>
-            <p className="text-3xl font-bold text-[#9EFF00]">$7,500</p>
+            <p className="text-3xl font-bold text-[#9EFF00]">15</p>
           </div>
           <div className="bg-black p-6 rounded-xl shadow hover:shadow-lg transition">
             <h3 className="text-xl font-medium mb-2 text-white">

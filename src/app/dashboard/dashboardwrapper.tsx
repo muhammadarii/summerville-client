@@ -1,4 +1,5 @@
 "use client";
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/parts/Sidebar";
 
@@ -8,14 +9,26 @@ export const DashboardWrapper = ({
   children: React.ReactNode;
 }) => {
   return (
-    <>
-      <SidebarProvider>
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full">
+        {/* Sidebar */}
         <AppSidebar />
-        <main className="w-[100vw] h-[100vh]">
-          <SidebarTrigger />
-          <section className="px-4 w-[100%] h-fit">{children}</section>
-        </main>
-      </SidebarProvider>
-    </>
+
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col">
+          {/* Sidebar Toggle Button */}
+          <div className="fixed top-4 left-5 z-50">
+            <SidebarTrigger />
+          </div>
+
+          {/* Page Content */}
+          <main className="w-full mt-10 md:mt-4">
+            <section className="rounded-xl p-6 shadow-md min-h-[calc(100vh-80px)] container mx-auto">
+              {children}
+            </section>
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
   );
 };
