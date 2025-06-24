@@ -1,6 +1,7 @@
 import {
   Calendar,
   ChevronUp,
+  Folder,
   Home,
   Inbox,
   Settings,
@@ -31,23 +32,28 @@ import Link from "next/link";
 
 const items = [
   {
-    title: "Services",
-    url: "/dashboard/services",
+    title: "Dashboard",
+    url: "/dashboard",
     icon: Home,
   },
   {
+    title: "Services",
+    url: "/dashboard/services",
+    icon: Folder,
+  },
+  {
     title: "Works",
-    url: "#",
+    url: "/dashboard/works",
     icon: Inbox,
   },
   {
     title: "Careers",
-    url: "#",
+    url: "/dashboard/careers",
     icon: Calendar,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/dashboard/settings",
     icon: Settings,
   },
 ];

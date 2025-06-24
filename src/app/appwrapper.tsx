@@ -9,6 +9,8 @@ const hiddenPaths = [
   "/register",
   "/dashboard",
   "/dashboard/services",
+  "/dashboard/works",
+  "/dashboard/careers",
 ];
 
 export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
