@@ -4,7 +4,12 @@ import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/parts/Navbar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const hiddenPaths = ["/login", "/register", "/dashboard"];
+const hiddenPaths = [
+  "/login",
+  "/register",
+  "/dashboard",
+  "/dashboard/services",
+];
 
 export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
